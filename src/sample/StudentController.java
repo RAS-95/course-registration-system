@@ -22,6 +22,7 @@ import org.w3c.dom.ls.LSOutput;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -101,6 +102,44 @@ public class StudentController {
         payableAmountColumn.setStyle( "-fx-alignment: CENTER-RIGHT;");
         courseDetails.getColumns().addAll(select, courseCodeColumn, descriptionColumn, creditColumn, payableAmountColumn);
     }
+    private int getUserID(String roll){
+        String findUserID = "SELECT * FROM user_info WHERE roll=?";
+        String connectionUrl = "jdbc:mysql://localhost/course_registration_system";
+
+        try {
+            Connection conn = DriverManager.getConnection(connectionUrl, "root", "");
+            PreparedStatement preparedStmt = conn.prepareStatement(findUserID);
+            preparedStmt.setString(1, roll);
+            ResultSet rs = preparedStmt.executeQuery();
+            while(rs.next()){
+                return rs.getInt("id");
+            }
+
+        }catch (SQLException e) {
+            // handle the exception
+            e.printStackTrace();
+        }
+        return -1;
+    }
+    private int getCourseID(String code){
+        String findUserID = "SELECT * FROM course_info WHERE code=?";
+        String connectionUrl = "jdbc:mysql://localhost/course_registration_system";
+
+        try {
+            Connection conn = DriverManager.getConnection(connectionUrl, "root", "");
+            PreparedStatement preparedStmt = conn.prepareStatement(findUserID);
+            preparedStmt.setString(1, code);
+            ResultSet rs = preparedStmt.executeQuery();
+            while(rs.next()){
+                return rs.getInt("id");
+            }
+
+        }catch (SQLException e) {
+            // handle the exception
+            e.printStackTrace();
+        }
+        return -1;
+    }
     @FXML
     private void updateCourse()
     {
@@ -124,6 +163,20 @@ public class StudentController {
         for(Course c: selectedCourses)
         {
             System.out.println(c.getCourseDescription());
+            String findUserID = "INSERT INTO enrolled_info(user_id, course_id) VALUES(?, ?)";
+            String connectionUrl = "jdbc:mysql://localhost/course_registration_system";
+
+            try {
+                Connection conn = DriverManager.getConnection(connectionUrl, "root", "");
+                PreparedStatement preparedStmt = conn.prepareStatement(findUserID);
+                preparedStmt.setString(1, String.valueOf(this.getUserID(this.roll.getText())));
+                preparedStmt.setString(2, String.valueOf(this.getCourseID(c.getCourseCode())));
+                preparedStmt.execute();
+
+            }catch (SQLException e) {
+                // handle the exception
+                e.printStackTrace();
+            }
         }
     }
 

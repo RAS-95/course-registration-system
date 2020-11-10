@@ -63,9 +63,7 @@ public class LoginAndRegistrationController
         }catch (SQLException e){
             e.printStackTrace();
         }
-        if(argUsername.getText().equals("admin") && argPassword.getText().equals("admin"))
-            return 0;
-        return 1;
+        return -1;
     }
     public void doLogin(ActionEvent actionEvent) throws IOException {
 
