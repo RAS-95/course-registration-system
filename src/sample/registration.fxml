@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RegistrationController">
+    <children>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+            <children>
+                <TextField fx:id="username" layoutX="135.0" layoutY="95.0" prefHeight="31.0" prefWidth="187.0" promptText="Username">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+                <PasswordField fx:id="password1" layoutX="135.0" layoutY="169.0" prefHeight="31.0" prefWidth="187.0" promptText="Password">
+               <font>
+                  <Font size="14.0" />
+               </font>
+                </PasswordField>
+                <Button fx:id="register" layoutX="131.0" layoutY="304.0" mnemonicParsing="false" onAction="#doRegister" prefHeight="31.0" prefWidth="88.0" text="Register" />
+                <Text layoutX="136.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register for new account" wrappingWidth="360.97265625">
+                    <font>
+                        <Font size="29.0" />
+                    </font>
+                </Text>
+            <TextField fx:id="email" layoutX="135.0" layoutY="252.0" prefHeight="31.0" prefWidth="187.0" promptText="Email">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Text layoutX="135.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="80.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="135.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="135.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="66.6015625">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="399.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Roll" wrappingWidth="43.021484375">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <TextField fx:id="roll" layoutX="399.0" layoutY="253.0" promptText="Roll">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Text layoutX="399.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Retype password">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <PasswordField fx:id="password2" layoutX="393.0" layoutY="169.0" prefHeight="31.0" prefWidth="187.0" promptText="Password">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>
