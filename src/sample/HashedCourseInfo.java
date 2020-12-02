@@ -95,6 +95,10 @@ public class HashedCourseInfo {
 
     }
     public HashMap<String, HashMap<Integer, HashMap<String, ArrayList<Course>>>> getHashedCourseInfo(){
+        /*
+        * To access a specific course query lie all.get(<dept name>).get(<year>).get(<semester name>)
+        * Example: all.get("CSE").get(1).get("Odd")
+        * */
         return this.all;
     }
 }
