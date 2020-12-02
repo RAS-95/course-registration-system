@@ -41,7 +41,7 @@
                                 <Font size="16.0" />
                             </font>
                         </Text>
-                        <Button fx:id="enroll" layoutX="30.0" layoutY="395.0" mnemonicParsing="false" onMouseClicked="#doEnroll" prefHeight="34.0" prefWidth="73.0" style="-fx-background-color: #3498eb;" text="Enroll" textFill="WHITE">
+                        <Button fx:id="enroll" layoutX="30.0" layoutY="395.0" mnemonicParsing="false" onMouseClicked="#doEnroll" prefHeight="34.0" prefWidth="73.0" style="-fx-background-color: #3498eb; -fx-cursor: hand;" text="Enroll" textFill="WHITE">
                      <font>
                         <Font size="17.0" />
                      </font></Button>
@@ -96,16 +96,6 @@
                   </Text>
                   <TextField fx:id="roll" editable="false" layoutX="420.0" layoutY="65.0" />
                     </children></AnchorPane>
-            </content>
-        </Tab>
-        <Tab text="Untitled Tab 2">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-        </Tab>
-        <Tab text="Untitled Tab">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
         </Tab>
     </tabs>
