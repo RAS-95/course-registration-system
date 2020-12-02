@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.print.PrinterJob;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -20,6 +21,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.w3c.dom.ls.LSOutput;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.sql.*;
@@ -33,6 +35,7 @@ public class StudentController {
 //        System.out.println(all.get("CSE").get(1).get("Odd"));
     }
     @FXML private TableView courseDetails;
+//    @FXML private TableView enrolledCourseDetails;
     @FXML private ChoiceBox deptListChoiceBox;
     @FXML private ChoiceBox yearListChoiceBox;
     @FXML private ChoiceBox semesterListChoiceBox;
@@ -98,9 +101,11 @@ public class StudentController {
 
         TableColumn payableAmountColumn = new TableColumn("Charge (BDT)");
         payableAmountColumn.setCellValueFactory(new PropertyValueFactory<>("payableAmount"));
-        payableAmountColumn.setMinWidth(100);
+        payableAmountColumn.setMinWidth(150);
         payableAmountColumn.setStyle( "-fx-alignment: CENTER-RIGHT;");
+//        enrolledCourseDetails.getColumns().addAll(courseCodeColumn, descriptionColumn, creditColumn);
         courseDetails.getColumns().addAll(select, courseCodeColumn, descriptionColumn, creditColumn, payableAmountColumn);
+
     }
     private int getUserID(String roll){
         String findUserID = "SELECT * FROM user_info WHERE roll=?";
@@ -143,6 +148,8 @@ public class StudentController {
     @FXML
     private void updateCourse()
     {
+        courseDetails.getItems().clear();
+
         String dept = deptListChoiceBox.getValue().toString();
         String year = yearListChoiceBox.getValue().toString();
         String sems = semesterListChoiceBox.getValue().toString();
@@ -178,9 +185,15 @@ public class StudentController {
                 e.printStackTrace();
             }
         }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText("Enrolled");
+        alert.setContentText("Successfully enrolled " + String.valueOf(selectedCourses.size()) + " courses\nCheck your email for enrollment receipt");
+        alert.showAndWait();
     }
 
     public void setRoll(String roll) {
         this.roll.setText(roll);
     }
+
 }
