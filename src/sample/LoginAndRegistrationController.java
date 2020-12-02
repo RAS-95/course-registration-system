@@ -71,7 +71,7 @@ public class LoginAndRegistrationController
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Success");
             alert.setHeaderText(null);
-            alert.setContentText("You are logged in");
+            alert.setContentText("You are logged in as admin");
             alert.showAndWait();
 
             Stage main = (Stage) login.getScene().getWindow();
